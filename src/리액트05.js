@@ -39,18 +39,6 @@ function App() {
               {따봉[i]}
             </h4>
             <p>2월 17일 발행</p>
-            <button
-              onClick={() => {
-                let copy = [...글제목];
-                let copy2 = [...따봉];
-                copy.splice(i, 1);
-                copy2.splice(i, 1);
-                글제목변경(copy);
-                따봉변경(copy2);
-                setModal(false);
-              }}>
-              삭제
-            </button>
           </div>
         );
       })}
@@ -67,15 +55,16 @@ function App() {
           onClick={() => {
             let copy = [...글제목];
             copy.unshift(입력값);
-            let copy따봉 = [...따봉];
-            copy따봉.unshift(0);
-            따봉변경(copy따봉);
-            setModal(false);
-            return 입력값.trim() !== '' ? 글제목변경(copy) : null;
+            글제목변경(copy);
           }}>
           글생성
         </button>
       </form>
+      {/* 
+        <input>에 입력한 값 가져오는 법
+        이벤트핸들러에 파라미터를 추가함(현재 이벤트의 정보라서 보통 e라고 작명함)
+        e.taget.value (입력 이벤트가 발생시에 이벤트가 일어난 곳의 값)로 가져온 값을 요리조리킹 알아서 사용
+      */}
 
       {modal == true ? <Modal 글제목={글제목} title={title} /> : null}
     </div>
