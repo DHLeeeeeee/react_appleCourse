@@ -34,7 +34,7 @@ function App() {
       <div className='list'>
         <h4 onClick={() => setModal(!modal)}>{글제목[2]}</h4>
         <p>2월 17일 발행</p>
-      </div> */}
+      </div>
 
       {/* \
       {[1, 2, 3].map(function () {

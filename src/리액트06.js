@@ -77,6 +77,7 @@ function App() {
           글생성
         </button>
       </form>
+      <Modal2 />
 
       {modal == true ? <Modal 글제목={글제목} title={title} /> : null}
     </div>
@@ -91,6 +92,37 @@ function Modal(props) {
       <p>상세내용</p>
     </div>
   );
+}
+
+// class 문법으로 컴포넌트 만들기
+// class 컴포넌트명 extends React.Component
+// 를 만들어 줌 (기본 템플릿같은거)
+class Modal2 extends Component {
+  // props 전달은 이렇게 ㅇㅇ
+  constructor(props) {
+    super(props);
+    // state 만드는 방법 (자료형으로 만듬)
+    this.state = {
+      name: 'kim',
+      age: 20,
+    };
+  }
+  render() {
+    // state 사용법은 {this.state.이름}
+    return (
+      <div>
+        안녕ㅋ {this.state.age}{' '}
+        <button
+          onClick={() => {
+            // state 변경하는 법
+            // 기존 state를 대체하는게 아닌 차이점만 변경함
+            this.setState({ age: 21 });
+          }}>
+          버튼
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
